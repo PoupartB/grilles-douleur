@@ -1,13 +1,72 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>FLACC</title>
-  <link rel="stylesheet" href="../../style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grilles d’évaluation de la douleur</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <a href="../../">← Retour accueil</a>
-  <h1>Échelle FLACC</h1>
-  <p>Page FLACC – à compléter</p>
+  <header class="header">
+    <h1>Grilles d’évaluation de la douleur</h1>
+    <input id="search" class="search" type="search" placeholder="Rechercher une échelle..." />
+  </header>
+
+  <main id="content"></main>
+
+  <script src="scales.js"></script>
+  <script>
+    const content = document.getElementById("content");
+    const search = document.getElementById("search");
+
+    function card(item) {
+      const a = document.createElement("a");
+      a.className = "card";
+      a.href = item.url || `scales/${item.id}/`;
+      a.target = item.url ? "_blank" : "";
+      a.rel = item.url ? "noopener noreferrer" : "";
+      a.dataset.q = (item.name + " " + (item.age||"")).toLowerCase();
+      a.innerHTML = `<div class="card-title">${item.name}</div><div class="card-sub">${item.age||""}</div>`;
+      return a;
+    }
+
+    function render() {
+      content.innerHTML = "";
+      sections.forEach(sec => {
+        const s = document.createElement("section");
+        s.className = "section";
+        s.innerHTML = `<h2>${sec.title}</h2>`;
+        content.appendChild(s);
+
+        if (sec.items) {
+          const g = document.createElement("div");
+          g.className = "grid";
+          sec.items.forEach(it => g.appendChild(card(it)));
+          s.appendChild(g);
+        }
+        if (sec.subsections) {
+          sec.subsections.forEach(sub => {
+            const h3 = document.createElement("h3");
+            h3.textContent = sub.subtitle;
+            s.appendChild(h3);
+            const g = document.createElement("div");
+            g.className = "grid";
+            sub.items.forEach(it => g.appendChild(card(it)));
+            s.appendChild(g);
+          });
+        }
+      });
+    }
+
+    function filter() {
+      const q = search.value.trim().toLowerCase();
+      document.querySelectorAll(".card").forEach(c => {
+        c.style.display = c.dataset.q.includes(q) ? "" : "none";
+      });
+    }
+
+    render();
+    search.addEventListener("input", filter);
+  </script>
 </body>
 </html>
