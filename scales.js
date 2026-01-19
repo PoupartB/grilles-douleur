@@ -1,0 +1,1 @@
+console.log("scales chargées");
