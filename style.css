@@ -1,2 +1,55 @@
+const sections = [
+  {
+    title: "DOULEUR AIGUE ET/OU PROLONGEE",
+    items: [
+      { id: "echelle-des-visages", name: "L’échelle des visages*", age: "(4-5 ans et +)" },
+      { id: "eva", name: "EVA*", age: "(6 ans et +)" },
+      { id: "schema-bonhomme", name: "Schéma du bonhomme*", age: "(4 ans et +)" },
+      { id: "en", name: "EN", age: "(8 ans et +)" },
+      { id: "evendol", name: "EVENDOL", age: "(Naissance - 8 ans)" },
+      { id: "comfort", name: "COMFORT", age: "(Naissance et +)" }
+    ]
+  },
+  {
+    title: "DOULEUR AIGUE",
+    items: [
+      { id: "dan", name: "DAN", age: "(Naissance-3 mois)" },
+      { id: "flacc", name: "FLACC", age: "(2 mois-7 ans)" },
+      { id: "cheops", name: "CHEOPS", age: "(1-7 ans)" }
+    ]
+  },
+  {
+    title: "DOULEUR PROLONGEE",
+    items: [
+      { id: "edin", name: "EDIN", age: "(Naissance- 3 mois)" },
+      { id: "heden", name: "HEDEN", age: "(2-7 ans)" }
+    ]
+  },
+  {
+    title: "DOULEUR ENFANT HANDICAPÉE",
+    subsections: [
+      {
+        subtitle: "Douleur aigue",
+        items: [
+          { id: "flacc-modifie", name: "FLACC modifié", age: "(Naissance-18 ans)" }
+        ]
+      },
+      {
+        subtitle: "Douleur prolongée",
+        items: [
+          { id: "ged-di", name: "GED-DI", age: "(3 ans et +)" },
+          { id: "san-salvador", name: "SAN SALVADOR", age: "(Naissance et +)" },
+          { id: "degr", name: "DEGR", age: "(9 mois-10 ans)" }
+        ]
+      }
+    ]
+  },
+  {
+    title: "DOULEUR NEUROPATIQUE",
+    items: [
+      { id: "dn4", name: "DN4", age: "(8 ans et +)" }
+    ]
+  }
+];
 
 
